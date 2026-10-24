@@ -9,5 +9,3 @@ UNION ALL SELECT 'orders', COUNT(*) FROM orders
 UNION ALL SELECT 'order_items', COUNT(*) FROM order_items
 UNION ALL SELECT 'payments', COUNT(*) FROM payments
 UNION ALL SELECT 'inventory_audit', COUNT(*) FROM inventory_audit;
-UNION ALL SELECT 'payments', COUNT(*) FROM payments
-UNION ALL SELECT 'inventory_audit', COUNT(*) FROM inventory_audit;

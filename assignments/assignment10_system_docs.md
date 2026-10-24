@@ -137,13 +137,13 @@ erDiagram
 ### Execution Order
 ```bash
 # 1. Initialize schema and database
-mysql -u root -p < create_db.sql
+mysql -u root -p < database/schema/create_db.sql
 
 # 2. Seed initial master data
-mysql -u root -p < insert.sql
+mysql -u root -p < database/seed/insert.sql
 
 # 3. Verify initial row counts
-mysql -u root -p < verify_row_cout.sql
+mysql -u root -p < database/tests/verify_row_count.sql
 
 # 4. Execute all core labs (Lab 3 to Lab 17)
 mysql -u root -p < labs/lab03_filtering_sorting.sql
@@ -177,4 +177,3 @@ mysql -u root -p < assignments/assignment07_idempotency.sql
 1. **Multi-Region & Distributed Writes**: Built on a single MySQL primary instance. High-volume global deployments would require read-replicas for view queries and horizontal sharding.
 2. **External Gateway Two-Phase Commit**: MySQL ACID transactions cannot hold distributed locks on external Stripe/Razorpay payment APIs. Real-world payment flows require eventual consistency, webhooks, and dead-letter queues.
 3. **Partitioning**: For multi-million row order histories, range partitioning by year/month on `orders(order_date)` is recommended.
-

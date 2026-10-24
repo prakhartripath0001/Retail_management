@@ -9,7 +9,13 @@ import random
 import os
 import time
 
-def generate_benchmark_sql(output_path="benchmark_100k_data.sql", total_records=100_000):
+def generate_benchmark_sql(output_path=None, total_records=100_000):
+    if output_path is None:
+        repository_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        output_path = os.path.join(
+            repository_root, "database", "benchmarks", "benchmark_100k_data.sql"
+        )
+
     print(f"Generating {total_records:,} synthetic order items into '{output_path}'...")
     start_time = time.time()
 
@@ -112,4 +118,3 @@ def generate_benchmark_sql(output_path="benchmark_100k_data.sql", total_records=
 
 if __name__ == "__main__":
     generate_benchmark_sql()
-
