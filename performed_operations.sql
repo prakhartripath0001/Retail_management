@@ -1,0 +1,3 @@
+SHOW TABLES;
+DESCRIBE customers;
+SHOW CREATE TABLE order_items;
